@@ -1,0 +1,26 @@
+/* Tooltip */
+
+.e-tooltip-template-css.e-tooltip-wrap.e-popup {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+  }
+  .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-outer.e-tip-bottom {
+    border-top: 8px solid #e0e0e0;
+  }
+  .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-outer.e-tip-top {
+    border-bottom: 8px solid #e0e0e0;
+  }
+  .e-tooltip-template-css.e-tooltip-wrap .e-tip-content {
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .e-tooltip-template-css.e-tooltip-wrap {
+    opacity: 1;
+  }
+  .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-inner.e-tip-bottom,
+  .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-inner.e-tip-top {
+    color: transparent;
+  }
+
+  .e-tooltip-template-css.e-tooltip-wrap .e-tip-content {
+    padding: 0;
+  }
