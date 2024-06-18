@@ -15,6 +15,7 @@
   }
   .e-tooltip-template-css.e-tooltip-wrap {
     opacity: 1;
+    border-radius: 15px;
   }
   .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-inner.e-tip-bottom,
   .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-inner.e-tip-top {
@@ -24,3 +25,47 @@
   .e-tooltip-template-css.e-tooltip-wrap .e-tip-content {
     padding: 0;
   }
+
+  /* Grid */
+
+  #fifa_grid .e-gridheader .e-headercell {
+    /* background: #f2e6ff; */
+    /* background: #e6ecff; */
+    background-color: #cce6ff;
+  }
+
+  #fifa_grid .e-gridcontent {
+    background: transparent;
+    /* background-image: url(/public/images/WorldCup.png);
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat; */
+    .e-content,
+    table {
+      background: transparent;
+    }
+    .football {
+      margin-right: 1px;
+    }
+  }
+
+  #fifa_grid .e-gridcontent::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/images/WorldCup.svg);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1; 
+}
+
+body,
+#fifa_grid,
+.e-control,
+.e-tooltip-wrap .e-tip-content {
+  font-family: cursive;
+}

@@ -60,9 +60,10 @@ function App() {
       <div>
         {host.map((item, index) => (
           <div key={index}>
-            <span>
+            {args.column.field !== 'Host' && <span>
               <ImageTemplate rowDetails={newRowData[index]} />
             </span>
+            }
             {' '}
             <a className='infotooltip' title={item} href="https://ej2.syncfusion.com/" onClick={(e) => e.preventDefault()}>
               {item}
@@ -83,6 +84,18 @@ function App() {
       obj['TopScorerCountry'] = country[index];
       newRowData.push(obj);
     });
+    const renderScoreIcons = () => {
+      const listItems = [];
+      for (let i = 0; i < args['TotalGoal']; i++) {
+        listItems.push(<img
+          key={i}
+          className='football'
+          alt=""
+          src="/images/Football.png"
+        />);
+      }
+      return listItems;
+    };
 
     return (
       <div>
@@ -104,11 +117,12 @@ function App() {
                 {item}
               </a>
             )}
-            {args.column.field === 'TopScorer' && (
+            {/* {args.column.field === 'TopScorer' && (
               <span> ({args['TotalGoal']}) </span>
-            )}
+            )} */}
           </div>
         ))}
+        {renderScoreIcons()}
       </div>
     );
   };
@@ -133,7 +147,7 @@ function App() {
             args[args.column.field] === 'Paolo Rossi' || args[args.column.field] === 'Salvatore Schillaci') ? (
           <span> {args[args.column.field]}</span>
         ) : (
-          <a className='infotooltip'  href="https://ej2.syncfusion.com/" onClick={(e) => e.preventDefault()}>
+          <a className='infotooltip' href="https://ej2.syncfusion.com/" onClick={(e) => e.preventDefault()}>
             {args[args.column.field]}
           </a>
         )}
@@ -295,17 +309,26 @@ function App() {
         ref={tooltipObj}
         width={275}
       >
-        <GridComponent ref={fifaGridIns} dataSource={fifaData} gridLines="Both" allowSorting={true} queryCellInfo={queryCellInfo}>
+        <GridComponent ref={fifaGridIns}
+          id="fifa_grid"
+          dataSource={fifaData}
+          gridLines="Both"
+          allowSorting={true}
+          enableAltRow={true}
+          enableHover={false}
+          allowSelection={false}
+          queryCellInfo={queryCellInfo}>
           <ColumnsDirective>
             <ColumnDirective
               field="Year"
               headerText="Year"
               width="100"
               headerTextAlign="Center"
+              textAlign='Right'
             ></ColumnDirective>
             <ColumnDirective
               field="Host"
-              headerText="Host"
+              headerText="Organizer"
               template={colTemplate}
               headerTextAlign="Center"
               width="140"
@@ -326,14 +349,14 @@ function App() {
             />
             <ColumnDirective
               field="TopScorer"
-              headerText="TopScorer(s)"
+              headerText="Most Scorer(s)"
               template={topScoreTemplate}
               headerTextAlign="Center"
               width="165"
             ></ColumnDirective>
             <ColumnDirective
               field="BestPlayerAward"
-              headerText="Best Player Award"
+              headerText="Player of season Award"
               template={awardTemplate}
               headerTextAlign="Center"
               width="150"
