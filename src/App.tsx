@@ -117,9 +117,6 @@ function App() {
                 {item}
               </a>
             )}
-            {/* {args.column.field === 'TopScorer' && (
-              <span> ({args['TotalGoal']}) </span>
-            )} */}
           </div>
         ))}
         {renderScoreIcons()}
@@ -298,6 +295,12 @@ function App() {
     return rowspan; // return the row span count
   }
 
+  const dataBound = () => {
+    const tableEle = fifaGridIns.current?.element.querySelector('.e-gridcontent table') as HTMLElement;
+    if (tableEle) {
+      tableEle.classList.add('tournament');
+    }    
+  }
   return (
     <div>
       <TooltipComponent
@@ -314,10 +317,14 @@ function App() {
           dataSource={fifaData}
           gridLines="Both"
           allowSorting={true}
+          enableStickyHeader={true}
+          allowTextWrap={true}
+          textWrapSettings={{wrapMode:'Content'}}
           enableAltRow={true}
           enableHover={false}
           allowSelection={false}
-          queryCellInfo={queryCellInfo}>
+          queryCellInfo={queryCellInfo}
+          dataBound={dataBound}>
           <ColumnsDirective>
             <ColumnDirective
               field="Year"
@@ -352,14 +359,14 @@ function App() {
               headerText="Most Scorer(s)"
               template={topScoreTemplate}
               headerTextAlign="Center"
-              width="165"
+              width="185"
             ></ColumnDirective>
             <ColumnDirective
               field="BestPlayerAward"
-              headerText="Player of season Award"
+              headerText="Player of season"
               template={awardTemplate}
               headerTextAlign="Center"
-              width="150"
+              width="170"
             ></ColumnDirective>
           </ColumnsDirective>
           <Inject services={[Sort]} />

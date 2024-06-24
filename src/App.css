@@ -1,55 +1,88 @@
+body,
+#fifa_grid,
+.e-control,
+.e-tooltip-wrap .e-tip-content {
+  font-family: cursive;
+}
+
 /* Tooltip */
 
-.e-tooltip-template-css.e-tooltip-wrap.e-popup {
+.e-tooltip-template-css.e-tooltip-wrap {
+  opacity: 1;
+  border-radius: 15px;
+
+  &.e-popup {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
   }
-  .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-outer.e-tip-bottom {
+
+  .e-arrow-tip-outer.e-tip-bottom {
     border-top: 8px solid #e0e0e0;
   }
-  .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-outer.e-tip-top {
+
+  .e-arrow-tip-outer.e-tip-top {
     border-bottom: 8px solid #e0e0e0;
   }
-  .e-tooltip-template-css.e-tooltip-wrap .e-tip-content {
+
+  .e-tip-content {
     color: rgba(0, 0, 0, 0.87);
   }
-  .e-tooltip-template-css.e-tooltip-wrap {
-    opacity: 1;
-    border-radius: 15px;
-  }
-  .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-inner.e-tip-bottom,
-  .e-tooltip-template-css.e-tooltip-wrap .e-arrow-tip-inner.e-tip-top {
+
+  .e-arrow-tip-inner.e-tip-bottom,
+  .e-arrow-tip-inner.e-tip-top {
     color: transparent;
   }
 
-  .e-tooltip-template-css.e-tooltip-wrap .e-tip-content {
+  .e-tip-content {
     padding: 0;
   }
+}
 
-  /* Grid */
+/* Grid */
 
-  #fifa_grid .e-gridheader .e-headercell {
-    /* background: #f2e6ff; */
-    /* background: #e6ecff; */
-    background-color: #cce6ff;
+#fifa_grid {
+  .e-gridheader {
+    thead .e-icons:not(.e-check):not(.e-stop) {
+      font-size: 20px;
+    }
+
+    .e-headercell {
+      background-color: #cce6ff;
+      height: 45px;
+    }
+
+    .e-headercelldiv {
+      font-size: 20px;
+      font-weight: bold;
+      height: 24px;
+    }
   }
 
-  #fifa_grid .e-gridcontent {
+  .e-sortfilterdiv {
+    margin: -18px -2px -12px 8px;
+  }
+
+  .e-sortnumber {
+    margin: 2px 10px 1px 8px;
+    background: #cccccc;
+    font-size: 13px;
+  }
+
+  .e-gridcontent {
     background: transparent;
-    /* background-image: url(/public/images/WorldCup.png);
-    background-size: contain;
-    background-position: top;
-    background-repeat: no-repeat; */
+
     .e-content,
     table {
       background: transparent;
     }
+
     .football {
       margin-right: 1px;
+      padding: 3px;
     }
   }
 
-  #fifa_grid .e-gridcontent::before {
+  .e-gridcontent table.tournament::before {
     content: "";
     position: absolute;
     top: 0;
@@ -60,12 +93,6 @@
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.1; 
-}
-
-body,
-#fifa_grid,
-.e-control,
-.e-tooltip-wrap .e-tip-content {
-  font-family: cursive;
+    opacity: 0.1;
+  }
 }
