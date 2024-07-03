@@ -1,10 +1,3 @@
-body,
-#fifa_grid,
-.e-control,
-.e-tooltip-wrap .e-tip-content {
-  font-family: cursive;
-}
-
 /* Tooltip */
 
 .e-tooltip-template-css.e-tooltip-wrap {
@@ -53,7 +46,6 @@ body,
 
     .e-headercelldiv {
       font-size: 20px;
-      font-weight: bold;
       height: 24px;
     }
   }
@@ -79,6 +71,7 @@ body,
     .football {
       margin-right: 1px;
       padding: 3px;
+      opacity: 0.6;
     }
   }
 
@@ -89,7 +82,7 @@ body,
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(/public/images/WorldCup.svg);
+    background-image: url(/public/images/WorldCup.png);
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;

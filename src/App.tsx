@@ -60,10 +60,9 @@ function App() {
       <div>
         {host.map((item, index) => (
           <div key={index}>
-            {args.column.field !== 'Host' && <span>
+            <span>
               <ImageTemplate rowDetails={newRowData[index]} />
             </span>
-            }
             {' '}
             <a className='infotooltip' title={item} href="https://ej2.syncfusion.com/" onClick={(e) => e.preventDefault()}>
               {item}
